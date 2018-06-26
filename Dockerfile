@@ -1,7 +1,7 @@
 FROM jenkinsci/jnlp-slave:3.16-1
 
-ARG DOCKER_VERSION=17.06.2~ce-0~debian
-ARG DC_VERSION=1.18.0
+ARG DOCKER_VERSION=18.03.1~ce-0~debian
+ARG DC_VERSION=1.21.0
 
 USER root
 
