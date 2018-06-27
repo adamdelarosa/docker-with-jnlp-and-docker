@@ -19,5 +19,10 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -qq -y --no-install-recommends docker-ce=${DOCKER_VERSION} && \
     curl -L https://github.com/docker/compose/releases/download/${DC_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*$
+    chmod +x /usr/local/bin/docker-compose
+
+
+RUN apt-get install python-setuptools python-dev build-essential -y && \
+    easy_install pip && \
+    pip install awscli
+
