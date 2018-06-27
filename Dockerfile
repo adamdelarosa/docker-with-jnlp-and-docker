@@ -1,3 +1,4 @@
+
 FROM jenkinsci/jnlp-slave:3.16-1
 
 ARG DOCKER_VERSION=18.03.1~ce-0~debian
@@ -22,7 +23,11 @@ RUN apt-get update && \
     chmod +x /usr/local/bin/docker-compose
 
 
+# AWS AWS-CLI COMMAND LINE TOOL
 RUN apt-get install python-setuptools python-dev build-essential -y && \
     easy_install pip && \
     pip install awscli
 
+# AWS ECS-CLI COMMAND LINE TOOL
+RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest && \
+    chmod 755 /usr/local/bin/ecs-cli
